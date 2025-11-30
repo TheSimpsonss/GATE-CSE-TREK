@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState<User | null>(null);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('darkMode');
     return saved ? JSON.parse(saved) : true;
@@ -208,21 +209,37 @@ function App() {
         setActiveTab={setActiveTab}
         isMobileOpen={isMobileOpen}
         setIsMobileOpen={setIsMobileOpen}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
         isDarkMode={isDarkMode}
         toggleTheme={toggleTheme}
         user={user}
         onLogout={handleLogout}
       />
-      <main className="md:ml-64 min-h-screen w-[calc(100%-16rem)] transition-all duration-300 overflow-x-hidden">
+      <main className={`min-h-screen w-full transition-all duration-300 overflow-x-hidden ${
+        isSidebarOpen ? 'md:ml-64 md:w-[calc(100%-16rem)]' : 'md:ml-0 md:w-full'
+      }`}>
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileOpen(true)}
-          className="md:hidden fixed top-4 left-4 z-40 p-2 bg-slate-800 text-white rounded-lg shadow-lg"
-          aria-label="Open menu"
-        >
-          <Menu size={24} />
-        </button>
-        <div className="p-4 md:p-8 w-full max-w-full overflow-x-hidden">
+        {!isMobileOpen && (
+          <button
+            onClick={() => setIsMobileOpen(true)}
+            className="md:hidden fixed top-3 left-3 sm:top-4 sm:left-4 z-40 p-2.5 bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-lg hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors touch-manipulation"
+            aria-label="Open menu"
+          >
+            <Menu size={22} className="sm:w-6 sm:h-6" />
+          </button>
+        )}
+        {/* Desktop Sidebar Toggle Button */}
+        {!isSidebarOpen && (
+          <button
+            onClick={() => setIsSidebarOpen(true)}
+            className="hidden md:flex fixed top-4 left-4 z-40 p-2.5 bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-lg hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+            aria-label="Open sidebar"
+          >
+            <Menu size={22} />
+          </button>
+        )}
+        <div className="p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 w-full max-w-full overflow-x-hidden pt-14 sm:pt-16 md:pt-4">
           {renderContent()}
         </div>
       </main>

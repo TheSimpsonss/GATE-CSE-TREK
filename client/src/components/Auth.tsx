@@ -39,27 +39,27 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-3 sm:p-4 md:p-6">
       <div className="w-full max-w-md">
         {/* Logo/Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center space-x-3 mb-4">
-            <div className="bg-blue-500 p-3 rounded-xl">
-              <GraduationCap size={32} className="text-white" />
+        <div className="text-center mb-4 sm:mb-6 md:mb-8">
+          <div className="inline-flex items-center justify-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+            <div className="bg-blue-500 p-2 sm:p-3 rounded-lg sm:rounded-xl">
+              <GraduationCap size={24} className="sm:w-8 sm:h-8 text-white" />
             </div>
             <div className="text-left">
-              <h1 className="text-3xl font-bold text-white">GATE Trek</h1>
-              <p className="text-sm text-slate-400">CSE Edition</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">GATE Trek</h1>
+              <p className="text-xs sm:text-sm text-slate-400">CSE Edition</p>
             </div>
           </div>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-300 text-xs sm:text-sm px-2">
             {isLogin ? 'Welcome back! Sign in to continue your journey.' : 'Start your GATE preparation journey today.'}
           </p>
         </div>
 
         {/* Auth Card */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border border-slate-200 dark:border-slate-700">
-          <div className="flex space-x-1 mb-6 bg-slate-100 dark:bg-slate-700 p-1 rounded-lg">
+        <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 border border-slate-200 dark:border-slate-700">
+          <div className="flex space-x-1 mb-4 sm:mb-6 bg-slate-100 dark:bg-slate-700 p-1 rounded-lg">
             <button
               onClick={() => {
                 setIsLogin(true);
@@ -68,14 +68,14 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
                 setPassword('');
                 setName('');
               }}
-              className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+              className={`flex-1 py-2 px-2 sm:px-4 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                 isLogin
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <div className="flex items-center justify-center space-x-2">
-                <LogIn size={16} />
+              <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+                <LogIn size={14} className="sm:w-4 sm:h-4" />
                 <span>Login</span>
               </div>
             </button>
@@ -87,32 +87,32 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
                 setPassword('');
                 setName('');
               }}
-              className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+              className={`flex-1 py-2 px-2 sm:px-4 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                 !isLogin
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <div className="flex items-center justify-center space-x-2">
-                <UserPlus size={16} />
+              <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+                <UserPlus size={14} className="sm:w-4 sm:h-4" />
                 <span>Sign Up</span>
               </div>
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2">
                   Full Name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+                  <User className="absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={16} />
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Enter your name"
                     required={!isLogin}
                   />
@@ -121,16 +121,16 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2">
                 Email
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+                <Mail className="absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={16} />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   placeholder="Enter your email"
                   required
                 />
@@ -138,16 +138,16 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+                <Lock className="absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={16} />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   placeholder="Enter your password"
                   required
                   minLength={6}
@@ -161,7 +161,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             </div>
 
             {error && (
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm">
                 {error}
               </div>
             )}
@@ -169,11 +169,11 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-transform"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl active:scale-[0.98] sm:hover:scale-[1.02] transition-transform text-sm sm:text-base"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white"></div>
                   <span>Please wait...</span>
                 </div>
               ) : (
@@ -182,7 +182,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             </button>
           </form>
 
-          <div className="mt-6 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {isLogin ? "Don't have an account? " : 'Already have an account? '}
               <button
@@ -198,7 +198,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
           </div>
         </div>
 
-        <p className="text-center mt-6 text-xs text-slate-400">
+        <p className="text-center mt-4 sm:mt-6 text-xs text-slate-400 px-2">
           Track your GATE CSE preparation progress
         </p>
       </div>

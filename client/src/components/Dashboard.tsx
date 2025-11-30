@@ -58,57 +58,57 @@ const Dashboard: React.FC<DashboardProps> = ({ syllabus, tests, isDarkMode }) =>
     : { backgroundColor: '#ffffff', borderColor: '#e2e8f0', color: '#1e293b' };
 
   return (
-    <div className="space-y-6 animate-fade-in w-full max-w-full overflow-x-hidden">
+    <div className="space-y-5 sm:space-y-6 md:space-y-8 animate-fade-in w-full max-w-7xl mx-auto overflow-x-hidden">
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-4 transition-colors">
-          <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
-            <BookOpen size={24} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+        <div className="bg-white dark:bg-slate-800 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-3 sm:space-x-4 transition-colors">
+          <div className="p-2 sm:p-2.5 md:p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 shrink-0">
+            <BookOpen size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
-          <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Syllabus Completion</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{Math.round((stats.completed / (stats.totalChapters || 1)) * 100)}%</p>
-          </div>
-        </div>
-
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-4 transition-colors">
-          <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
-            <CheckCircle size={24} />
-          </div>
-          <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Revision 1 Done</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{stats.rev1} <span className="text-sm font-normal text-slate-400 dark:text-slate-500">/ {stats.totalChapters}</span></p>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate">Syllabus Completion</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100">{Math.round((stats.completed / (stats.totalChapters || 1)) * 100)}%</p>
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-4 transition-colors">
-          <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
-            <Trophy size={24} />
+        <div className="bg-white dark:bg-slate-800 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-3 sm:space-x-4 transition-colors">
+          <div className="p-2 sm:p-2.5 md:p-3 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 shrink-0">
+            <CheckCircle size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
-          <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">PYQs Solved</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{stats.pyq} <span className="text-sm font-normal text-slate-400 dark:text-slate-500">/ {stats.totalChapters}</span></p>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate">Revision 1 Done</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100">{stats.rev1} <span className="text-xs sm:text-sm font-normal text-slate-400 dark:text-slate-500">/ {stats.totalChapters}</span></p>
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-4 transition-colors">
-          <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400">
-            <AlertCircle size={24} />
+        <div className="bg-white dark:bg-slate-800 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-3 sm:space-x-4 transition-colors">
+          <div className="p-2 sm:p-2.5 md:p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 shrink-0">
+            <Trophy size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </div>
-          <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Tests Taken</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{tests.length}</p>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate">PYQs Solved</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100">{stats.pyq} <span className="text-xs sm:text-sm font-normal text-slate-400 dark:text-slate-500">/ {stats.totalChapters}</span></p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center space-x-3 sm:space-x-4 transition-colors">
+          <div className="p-2 sm:p-2.5 md:p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400 shrink-0">
+            <AlertCircle size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium truncate">Tests Taken</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100">{tests.length}</p>
           </div>
         </div>
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
         {/* Completion Pie Chart */}
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Syllabus Status</h3>
-          <div className="h-64 w-full min-h-[256px]">
-            <ResponsiveContainer width="100%" height={256}>
+        <div className="bg-white dark:bg-slate-800 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2 sm:mb-3 md:mb-4">Syllabus Status</h3>
+          <div className="h-48 sm:h-56 md:h-64 w-full min-h-[192px] sm:min-h-[224px] md:min-h-[256px]">
+            <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={completionData}
@@ -133,15 +133,15 @@ const Dashboard: React.FC<DashboardProps> = ({ syllabus, tests, isDarkMode }) =>
         </div>
 
         {/* Test Performance Line Chart */}
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Recent Test Performance (%)</h3>
+        <div className="bg-white dark:bg-slate-800 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2 sm:mb-3 md:mb-4">Recent Test Performance (%)</h3>
           {tests.length === 0 ? (
-            <div className="h-64 flex items-center justify-center text-slate-400 dark:text-slate-500 min-h-[256px]">
+            <div className="h-48 sm:h-56 md:h-64 flex items-center justify-center text-slate-400 dark:text-slate-500 min-h-[192px] sm:min-h-[224px] md:min-h-[256px] text-xs sm:text-sm md:text-base">
               No tests recorded yet.
             </div>
           ) : (
-            <div className="h-64 w-full min-h-[256px]">
-              <ResponsiveContainer width="100%" height={256}>
+            <div className="h-48 sm:h-56 md:h-64 w-full min-h-[192px] sm:min-h-[224px] md:min-h-[256px]">
+              <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={testPerformanceData}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridColor} />
                   <XAxis dataKey="name" tick={{fontSize: 12, fill: axisColor}} stroke={gridColor} />
